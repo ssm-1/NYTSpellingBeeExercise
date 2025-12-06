@@ -1,0 +1,41 @@
+def check_word(word, available, required):
+  
+
+  flag = False 
+  flag_two = False
+
+  if len(word) < 4: 
+      return False
+    
+  for i in word.upper(): 
+      # checking if letter is available and in required. If so returns True by nature (Boolean)
+    if i in available and i in required: 
+        flag = True 
+        print(flag)
+      # checking if i (letter) is in available goes one by one. Sets to True if it is. 
+    if i in available: 
+        flag_two = True
+      # if the previous conditions fail it goes to false. This iterates for every letter so only if the last letter fails to meet criteria it should go to this. But tell me I want the for loop to check both of the if conditions 
+      #will it do that 
+    else:
+        flag_two = False 
+      
+  if flag == True and flag_two == True: 
+      return True
+  else: 
+      return False
+
+
+  """Check whether a word is acceptable.
+    
+    >>> check_word('color', 'ACDLORT', 'R')
+    True
+    >>> check_word('ratatat', 'ACDLORT', 'R')
+    True
+    >>> check_word('rat', 'ACDLORT', 'R')
+    False
+    >>> check_word('told', 'ACDLORT', 'R')
+    False
+    >>> check_word('bee', 'ACDLORT', 'R')
+    False
+    """
