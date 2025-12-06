@@ -1,0 +1,31 @@
+def word_score(word, available):
+    """Compute the score for an acceptable word.
+
+    >>> word_score('card', 'ACDLORT')
+    1
+    >>> word_score('color', 'ACDLORT')
+    5
+    >>> word_score('cartload', 'ACDLORT')
+    15
+    """
+    count = 0
+    points = 0
+    flag = False 
+    for letter in word:
+      print("before:", letter, "count=", count, "points=", points)
+
+      if letter in available.lower():
+        count += 1
+        print("before:", letter, "count=", count, "points=", points)
+
+        if count >= 7 and flag == False:
+          print("before:", letter, "count=", count, "points=", points)
+          points += 7
+          flag = True 
+    if len(word) > 4:
+      print("before:", letter, "count=", count, "points=", points)
+      points += len(word)
+    if len(word) == 4:
+      print("before:", letter, "count=", count, "points=", points)
+      points += 1
+    return points
